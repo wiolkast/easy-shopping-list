@@ -118,13 +118,31 @@ public class ViewModel extends AndroidViewModel {
         });
     }
 
-    public static void insertProduct(ProductEntry product) {
+    public static void insertProduct(ProductEntry product, final ViewModelInsertProductCallback productsActivityCallback) {
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
-                db.productDao().insertProduct(product);
+                if(productsActivityCallback != null){
+                    List<ProductEntry> similarProducts = db.productDao().findSimilarProducts(product.getProductName());
+                    if(similarProducts.size() > 0){
+                        AppExecutors.getInstance().mainThread().execute(new Runnable() {
+                            @Override
+                            public void run() {
+                                productsActivityCallback.similarProductsDetected(product, similarProducts);
+                            }
+                        });
+                    } else {
+                        db.productDao().insertProduct(product);
+                    }
+                } else {
+                    db.productDao().insertProduct(product);
+                }
             }
         });
+    }
+
+    public interface ViewModelInsertProductCallback{
+        void similarProductsDetected(ProductEntry product, List<ProductEntry> similarProducts);
     }
 
     public static void updateProduct(ProductEntry product) {

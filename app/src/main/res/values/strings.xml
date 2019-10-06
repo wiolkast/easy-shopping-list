@@ -28,10 +28,12 @@
     <string name="button_save_title">Save</string>
     <string name="button_delete_title">Delete</string>
     <string name="button_cancel_title">Cancel</string>
+    <string name="button_add_title">Add</string>
 
     <string name="edit_text_list_hint">Enter list name</string>
     <string name="edit_text_product_hint">Enter product name</string>
     <string name="delete_list_confirmation">Deleting list. Are you sure?</string>
     <string name="delete_product_confirmation">Deleting product. Are you sure?</string>
+    <string name="add_similar_product_confirmation">Are you sure? You already have in the list: </string>
 
 </resources>

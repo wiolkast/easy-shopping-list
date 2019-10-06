@@ -15,6 +15,9 @@ public interface ProductDao {
     @Query("SELECT * FROM products ORDER BY productName COLLATE NOCASE ASC")
     LiveData<List<ProductEntry>> loadAllIProducts();
 
+    @Query("SELECT * FROM products WHERE productName LIKE '%' || :productName || '%' ORDER BY productName COLLATE NOCASE ASC")
+    List<ProductEntry> findSimilarProducts(String productName);
+
     @Insert
     void insertProduct(ProductEntry productEntry);
 

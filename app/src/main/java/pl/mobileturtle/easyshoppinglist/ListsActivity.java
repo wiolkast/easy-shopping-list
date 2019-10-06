@@ -90,7 +90,7 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 } else {
-                    openConfirmationDialog(list);
+                    openDeleteConfirmationDialog(list);
                 }
                 break;
         }
@@ -135,7 +135,7 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
         alertDialog.show();
     }
 
-    private void openConfirmationDialog(ListEntry list) {
+    private void openDeleteConfirmationDialog(ListEntry list) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_delete_confirmation, null);
         ButterKnife.bind(this, dialogView);
