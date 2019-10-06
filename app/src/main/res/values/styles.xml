@@ -7,4 +7,128 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <!-- Shopping List -->
+    <style name="CardViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/card_view_margin</item>
+        <item name="android:layout_marginBottom">@dimen/card_view_margin</item>
+        <item name="android:layout_marginLeft">@dimen/card_view_margin</item>
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+        <item name="cardCornerRadius">5dp</item>
+        <item name="cardElevation">4dp</item>
+    </style>
+
+    <style name="TextViewItemNameStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/main_layout_margin</item>
+        <item name="android:layout_marginTop">@dimen/small_layout_margin</item>
+        <item name="android:layout_marginBottom">@dimen/small_layout_margin</item>
+        <item name="android:layout_marginLeft">@dimen/small_layout_margin</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
+    <!-- RecyclerView labels -->
+    <style name="RecycleViewLabelsStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/recycler_view_label_text_size</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:layout_margin">@dimen/main_layout_margin</item>
+        <item name="layout_constraintHorizontal_bias">0</item>
+    </style>
+
+    <style name="RecyclerViewButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/ic_add_white</item>
+        <item name="android:elevation">@dimen/fab_elevation</item>
+        <item name="android:stateListAnimator">@animator/image_button_rise</item>
+        <item name="android:background">@drawable/image_button_ripple</item>
+        <item name="android:layout_margin">@dimen/main_layout_margin</item>
+    </style>
+
+    <!-- List and product items -->
+    <style name="TextViewListAndProductItemsNameStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/main_layout_margin</item>
+        <item name="android:layout_marginTop">@dimen/small_layout_margin</item>
+        <item name="android:layout_marginBottom">@dimen/small_layout_margin</item>
+        <item name="android:layout_marginLeft">@dimen/small_layout_margin</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
+    <!-- Floating action button -->
+    <style name="FloatingActionButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
+        <item name="android:elevation">@dimen/fab_elevation</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:src">@drawable/ic_add_white</item>
+        <item name="android:backgroundTint">@color/fab_background_tint</item>
+        <item name="borderWidth">0dp</item>
+        <item name="fabSize">normal</item>
+        <item name="maxImageSize">@dimen/fab_max_image_size</item>
+        <item name="pressedTranslationZ">@dimen/fab_pressed_translation_z</item>
+        <item name="rippleColor">@color/fab_ripple_color</item>
+    </style>
+
+    <!-- ImageButtons -->
+    <style name="ButtonListAndProductItemsStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/main_layout_margin</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="ButtonCkeckedStyle" parent="ButtonListAndProductItemsStyle">
+        <item name="android:src">@drawable/ic_checked</item>
+    </style>
+
+    <style name="ButtonEditStyle" parent="ButtonListAndProductItemsStyle">
+        <item name="android:src">@drawable/ic_mode_edit</item>
+    </style>
+
+    <style name="ButtonDeleteStyle" parent="ButtonListAndProductItemsStyle">
+        <item name="android:src">@drawable/ic_delete</item>
+    </style>
+
+    <style name="ButtonAddStyle" parent="ButtonListAndProductItemsStyle">
+        <item name="android:src">@drawable/ic_add_green</item>
+    </style>
+
+    <!-- Alert Dialog Windows -->
+    <style name="AlertDialogButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="AlertDialogTitleTextViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:layout_marginBottom">@dimen/small_layout_margin</item>
+    </style>
+
+    <style name="AlertDialogEditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">text</item>
+        <item name="android:selectAllOnFocus">true</item>
+    </style>
+
+    <style name="AlertDialogConfirmationTextViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:layout_marginLeft">@dimen/small_layout_margin</item>
+        <item name="android:layout_marginTop">@dimen/small_layout_margin</item>
+        <item name="android:layout_marginBottom">@dimen/main_layout_margin</item>
+    </style>
+
 </resources>

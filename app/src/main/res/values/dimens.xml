@@ -1,5 +1,15 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
 
-    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="main_layout_margin">16dp</dimen>
+    <dimen name="small_layout_margin">8dp</dimen>
+    <dimen name="card_view_margin">12dp</dimen>
+
+    <dimen name="recycler_view_label_text_size">20sp</dimen>
+
+    <!-- Floating action button -->
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_max_image_size">56dp</dimen>
+    <dimen name="fab_pressed_translation_z">12dp</dimen>
+
 </resources>

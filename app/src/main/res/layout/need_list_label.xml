@@ -6,12 +6,8 @@
 
     <TextView
         android:id="@+id/need_list_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/RecycleViewLabelsStyle"
         android:text="@string/need_label"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:layout_margin="10dp"
-        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -19,15 +15,8 @@
 
     <ImageButton
         android:id="@+id/button_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_add_white"
-        android:stateListAnimator="@animator/image_button_rise"
-        android:background="@drawable/image_button_ripple"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:elevation="6dp"
+        style="@style/RecyclerViewButtonStyle"
+        android:contentDescription="@string/button_add_description"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

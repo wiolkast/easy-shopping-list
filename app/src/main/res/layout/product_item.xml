@@ -8,10 +8,7 @@
 
     <TextView
         android:id="@+id/product_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        style="@style/TextViewListAndProductItemsNameStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/button_add"
@@ -19,11 +16,8 @@
 
     <ImageButton
         android:id="@+id/button_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_add_green"
+        style="@style/ButtonAddStyle"
+        android:contentDescription="@string/button_add_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/product_name"
         app:layout_constraintRight_toLeftOf="@id/button_edit"
@@ -31,11 +25,8 @@
 
     <ImageButton
         android:id="@+id/button_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_mode_edit"
+        style="@style/ButtonEditStyle"
+        android:contentDescription="@string/button_edit_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/button_add"
         app:layout_constraintRight_toLeftOf="@id/button_delete"
@@ -43,11 +34,8 @@
 
     <ImageButton
         android:id="@+id/button_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_delete"
+        style="@style/ButtonDeleteStyle"
+        android:contentDescription="@string/button_delete_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/button_edit"
         app:layout_constraintRight_toRightOf="parent"

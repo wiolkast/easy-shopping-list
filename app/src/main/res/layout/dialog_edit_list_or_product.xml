@@ -8,10 +8,7 @@
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_marginBottom="8dp"
+        style="@style/AlertDialogTitleTextViewStyle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,10 +16,7 @@
 
     <EditText
         android:id="@+id/edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:selectAllOnFocus="true"
+        style="@style/AlertDialogEditTextStyle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
@@ -30,8 +24,7 @@
 
     <Button
         android:id="@+id/button_save"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/AlertDialogButtonStyle"
         android:text="@string/button_save_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/button_cancel"
@@ -40,8 +33,7 @@
 
     <Button
         android:id="@+id/button_cancel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/AlertDialogButtonStyle"
         android:text="@string/button_cancel_title"
         app:layout_constraintLeft_toRightOf="@id/button_save"
         app:layout_constraintRight_toRightOf="parent"

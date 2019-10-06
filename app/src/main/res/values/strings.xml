@@ -30,6 +30,11 @@
     <string name="button_cancel_title">Cancel</string>
     <string name="button_add_title">Add</string>
 
+    <string name="button_checked_description">Check active list</string>
+    <string name="button_edit_description">Edit item</string>
+    <string name="button_delete_description">Delete item</string>
+    <string name="button_add_description">Add item</string>
+
     <string name="edit_text_list_hint">Enter list name</string>
     <string name="edit_text_product_hint">Enter product name</string>
     <string name="delete_list_confirmation">Deleting list. Are you sure?</string>

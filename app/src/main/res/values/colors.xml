@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- Floating action button -->
+    <color name="fab_background_tint">#52C51A</color>
+    <color name="fab_ripple_color">#2F9B0F</color>
 </resources>
