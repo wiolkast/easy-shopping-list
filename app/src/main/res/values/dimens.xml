@@ -6,6 +6,19 @@
 
     <dimen name="recycler_view_label_text_size">20sp</dimen>
 
+    <!-- Widget -->
+    <dimen name="widget_margin">16dp</dimen>
+    <dimen name="widget_text_horizontal_margin">12dp</dimen>
+    <dimen name="widget_text_margin_top">8dp</dimen>
+    <dimen name="widget_text_margin_bottom">4dp</dimen>
+    <dimen name="widget_text_size">16sp</dimen>
+    <dimen name="widget_min_width">100dp</dimen>
+    <dimen name="widget_min_height">100dp</dimen>
+    <dimen name="widget_title_bottom_margin">2dp</dimen>
+    <dimen name="widget_title_main_margin">4dp</dimen>
+    <dimen name="widget_title_text_left_margin">8dp</dimen>
+    <dimen name="widget_title_text_size">16sp</dimen>
+
     <!-- Floating action button -->
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="fab_elevation">6dp</dimen>

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -26,6 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.mobileturtle.easyshoppinglist.data.ProductEntry;
 import pl.mobileturtle.easyshoppinglist.data.ViewModel;
+import pl.mobileturtle.easyshoppinglist.widget.WidgetService;
 
 import static androidx.recyclerview.widget.DividerItemDecoration.VERTICAL;
 
@@ -68,6 +70,8 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
             @Override
             public void onChanged(@Nullable List<ProductEntry> productEntries) {
                 adapter.updateData(productEntries);
+                Intent widgetUpdateIntent = new Intent(getApplicationContext(), WidgetService.class);
+                startService(widgetUpdateIntent);
             }
         });
 

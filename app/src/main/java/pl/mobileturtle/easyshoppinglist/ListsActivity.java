@@ -1,5 +1,6 @@
 package pl.mobileturtle.easyshoppinglist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -26,6 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.mobileturtle.easyshoppinglist.data.ListEntry;
 import pl.mobileturtle.easyshoppinglist.data.ViewModel;
+import pl.mobileturtle.easyshoppinglist.widget.WidgetService;
 
 import static androidx.recyclerview.widget.DividerItemDecoration.VERTICAL;
 
@@ -57,6 +59,8 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
             @Override
             public void onChanged(@Nullable List<ListEntry> listEntries) {
                 adapter.updateData(listEntries);
+                Intent widgetUpdateIntent = new Intent(getApplicationContext(), WidgetService.class);
+                startService(widgetUpdateIntent);
             }
         });
 

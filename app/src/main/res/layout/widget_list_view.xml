@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    style="@style/WidgetContainerStyle">
+
+    <LinearLayout
+        style="@style/WidgetTitleContainerStyle">
+
+        <TextView
+            style="@style/WidgetTitleTextStyle"/>
+
+        <ImageView
+            style="@style/WidgetLogoStyle"
+            android:contentDescription="@string/widget_logo_description"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/widget_list_view"
+        style="@style/WidgetListViewStyle"/>
+
+</LinearLayout>

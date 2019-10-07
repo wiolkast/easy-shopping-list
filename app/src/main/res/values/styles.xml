@@ -131,4 +131,73 @@
         <item name="android:layout_marginBottom">@dimen/main_layout_margin</item>
     </style>
 
+    <!-- Widget -->
+    <style name="WidgetContainerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/widget_container_background_color</item>
+        <item name="android:layout_margin">@dimen/widget_margin</item>
+        <item name="android:padding">@dimen/widget_margin</item>
+    </style>
+
+    <style name="WidgetListViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="WidgetListItemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/widget_container_background_color</item>
+    </style>
+
+    <style name="WidgetListItemTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/widget_text_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/widget_text_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/widget_text_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/widget_text_margin_bottom</item>
+        <item name="android:textSize">@dimen/widget_text_size</item>
+        <item name="android:textColor">@color/widget_text_color</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="WidgetTitleContainerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/widget_logo_background_color</item>
+    </style>
+
+    <style name="WidgetTitleTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/widget_logo_title</item>
+        <item name="android:textColor">@color/widget_logo_color</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/widget_title_text_size</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginStart">@dimen/widget_title_text_left_margin</item>
+        <item name="android:layout_marginEnd">@dimen/widget_title_main_margin</item>
+        <item name="android:layout_marginTop">@dimen/widget_title_main_margin</item>
+        <item name="android:layout_marginBottom">@dimen/widget_title_bottom_margin</item>
+    </style>
+
+    <style name="WidgetLogoStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/ic_shopping_cart</item>
+        <item name="android:layout_marginTop">@dimen/widget_title_main_margin</item>
+        <item name="android:layout_marginBottom">@dimen/widget_title_bottom_margin</item>
+        <item name="android:layout_marginEnd">@dimen/widget_title_main_margin</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">end</item>
+    </style>
+
 </resources>

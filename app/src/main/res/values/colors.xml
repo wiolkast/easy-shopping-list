@@ -7,4 +7,10 @@
     <!-- Floating action button -->
     <color name="fab_background_tint">#52C51A</color>
     <color name="fab_ripple_color">#2F9B0F</color>
+
+    <!-- Widget -->
+    <color name="widget_container_background_color">#F5F0D7</color>
+    <color name="widget_text_color">#000000</color>
+    <color name="widget_logo_color">#FDFCF3</color>
+    <color name="widget_logo_background_color">#353957</color>
 </resources>

@@ -23,6 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.mobileturtle.easyshoppinglist.data.ShoppingListData;
 import pl.mobileturtle.easyshoppinglist.data.ViewModel;
+import pl.mobileturtle.easyshoppinglist.widget.WidgetService;
 
 public class MainActivity extends AppCompatActivity implements ShoppingListAdapter.ClickListener {
     @BindView(R.id.rv_shopping_list) RecyclerView recyclerView;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
             @Override
             public void onChanged(@Nullable List<ShoppingListData> data) {
                 adapter.updateData(data);
+                Intent widgetUpdateIntent = new Intent(getApplicationContext(), WidgetService.class);
+                startService(widgetUpdateIntent);
             }
         });
         viewModel.getShoppingListName().observe(this, new Observer<String>() {

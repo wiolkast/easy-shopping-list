@@ -1,0 +1,9 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    style="@style/WidgetListItemStyle">
+
+    <TextView
+        android:id="@+id/product_name"
+        style="@style/WidgetListItemTextViewStyle"/>
+
+</LinearLayout>
