@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -86,8 +87,9 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.action_show_lists:
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
                 Intent intent = new Intent(this, ListsActivity.class);
-                startActivity(intent);
+                startActivity(intent, bundle);
                 break;
             case R.id.action_send_email:
                 Toast.makeText(MainActivity.this, "Send to email clicked", Toast.LENGTH_SHORT).show();
@@ -100,8 +102,9 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
     public void onClick(int id, int actionType) {
         switch (actionType) {
             case ShoppingListAdapter.ACTION_OPEN_PRODUCT_ACTIVITY:
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
                 Intent intent = new Intent(this, ProductsActivity.class);
-                startActivity(intent);
+                startActivity(intent, bundle);
                 break;
             case ShoppingListAdapter.ACTION_DELETE_ITEM:
                 ViewModel.deleteShoppingListItemById(id);

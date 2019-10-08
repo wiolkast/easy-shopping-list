@@ -13,19 +13,23 @@
 
         <activity
             android:name=".ProductsActivity"
-            android:label="@string/title_activity_products">
+            android:label="@string/title_activity_products"
+            android:theme="@style/AppTheme.Products">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".ListsActivity"
-            android:label="@string/title_activity_lists">
+            android:label="@string/title_activity_lists"
+            android:theme="@style/AppTheme.Lists">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

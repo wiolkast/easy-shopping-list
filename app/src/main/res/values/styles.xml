@@ -2,10 +2,21 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowExitTransition">@transition/fade</item>
+    </style>
+
+    <style name="AppTheme.Main" parent="@style/AppTheme">
+        <item name="android:windowReenterTransition">@transition/explode</item>
+    </style>
+    <style name="AppTheme.Lists" parent="@style/AppTheme">
+        <item name="android:windowEnterTransition">@transition/slide</item>
+    </style>
+    <style name="AppTheme.Products" parent="@style/AppTheme">
+        <item name="android:windowEnterTransition">@transition/slide</item>
     </style>
 
     <!-- Shopping List -->
