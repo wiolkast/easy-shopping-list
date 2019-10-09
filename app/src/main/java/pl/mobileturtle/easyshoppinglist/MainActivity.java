@@ -3,6 +3,7 @@ package pl.mobileturtle.easyshoppinglist;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -16,6 +17,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -28,6 +30,8 @@ import pl.mobileturtle.easyshoppinglist.widget.WidgetService;
 
 public class MainActivity extends AppCompatActivity implements ShoppingListAdapter.ClickListener {
     @BindView(R.id.rv_shopping_list) RecyclerView recyclerView;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.toolbar_title) TextView toolbarTitle;
     private ShoppingListAdapter adapter;
 
     @Override
@@ -35,7 +39,10 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        setSupportActionBar(toolbar);
+        if(getSupportActionBar()!=null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         adapter = new ShoppingListAdapter(this);
@@ -56,9 +63,7 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
         viewModel.getShoppingListName().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String listName) {
-                if(getSupportActionBar()!=null) {
-                    getSupportActionBar().setTitle(listName);
-                }
+                    toolbarTitle.setText(listName);
             }
         });
 

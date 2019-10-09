@@ -3,6 +3,7 @@ package pl.mobileturtle.easyshoppinglist;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -42,6 +43,7 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
     @Nullable @BindView(R.id.button_cancel) Button buttonCancel;
     @Nullable @BindView(R.id.button_delete) Button buttonDelete;
     @Nullable @BindView(R.id.button_add) Button buttonAdd;
+    @Nullable @BindView(R.id.toolbar) Toolbar toolbar;
     @BindString(R.string.add_new_product) String newProductTitle;
     @BindString(R.string.edit_product) String editProductTitle;
     @BindString(R.string.edit_text_product_hint) String editProductHint;
@@ -56,6 +58,7 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);

@@ -20,9 +20,13 @@
     <dimen name="widget_title_text_size">16sp</dimen>
 
     <!-- Floating action button -->
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_margin">32dp</dimen>
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="fab_max_image_size">56dp</dimen>
     <dimen name="fab_pressed_translation_z">12dp</dimen>
+
+    <!-- Toolbar -->
+    <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="toolbar_title_size">20sp</dimen>
 
 </resources>

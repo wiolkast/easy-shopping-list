@@ -8,6 +8,8 @@
     <string name="menu_send_to_email">Send to email</string>
 
     <!-- Main Activity -->
+    <string name="toolbar_picture_description">Toolbar picture</string>
+
     <string name="need_label">Need:</string>
     <string name="already_have_label">Already have:</string>
 

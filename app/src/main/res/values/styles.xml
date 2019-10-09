@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -17,6 +17,46 @@
     </style>
     <style name="AppTheme.Products" parent="@style/AppTheme">
         <item name="android:windowEnterTransition">@transition/slide</item>
+    </style>
+
+    <!-- MAIN ACTIVITY -->
+
+    <style name="CollapsingToolbarLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="layout_scrollFlags">scroll|exitUntilCollapsed</item>
+        <item name="contentScrim">?colorPrimary</item>
+        <item name="titleEnabled">false</item>
+    </style>
+
+    <style name="NestedScrollViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="layout_behavior">@string/appbar_scrolling_view_behavior</item>
+    </style>
+
+    <!-- Toolbar -->
+    <style name="MainToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="layout_collapseMode">pin</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="theme">@style/ToolbarTheme</item>
+    </style>
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
+    <style name="MainToolbarTitleStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:layout_margin">@dimen/main_layout_margin</item>
+        <item name="android:textSize">@dimen/toolbar_title_size</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="theme">@style/ToolbarTheme</item>
     </style>
 
     <!-- Shopping List -->
@@ -59,6 +99,21 @@
         <item name="android:stateListAnimator">@animator/image_button_rise</item>
         <item name="android:background">@drawable/image_button_ripple</item>
         <item name="android:layout_margin">@dimen/main_layout_margin</item>
+    </style>
+
+    <!-- LISTS AND PRODUCTS ACTIVITY -->
+
+    <!-- Toolbar -->
+    <style name="ToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:elevation">@dimen/toolbar_elevation</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="navigationIcon">?homeAsUpIndicator</item>
     </style>
 
     <!-- List and product items -->

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -40,6 +41,7 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
     @Nullable @BindView(R.id.button_save) Button buttonSave;
     @Nullable @BindView(R.id.button_cancel) Button buttonCancel;
     @Nullable @BindView(R.id.button_delete) Button buttonDelete;
+    @Nullable @BindView(R.id.toolbar) Toolbar toolbar;
     @BindString(R.string.add_new_list) String newListTitle;
     @BindString(R.string.edit_list) String editListTitle;
     @BindString(R.string.edit_text_list_hint) String editListHint;
@@ -53,6 +55,7 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lists);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
 
         ViewModel viewModel = ViewModelProviders.of(this).get(ViewModel.class);
         viewModel.loadAllLists().observe(this, new Observer<List<ListEntry>>() {
