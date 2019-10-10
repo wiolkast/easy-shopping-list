@@ -56,6 +56,9 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
         setContentView(R.layout.activity_lists);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        if(getSupportActionBar()!=null) {
+            getSupportActionBar().setHomeActionContentDescription(R.string.up_button_description);
+        }
 
         ViewModel viewModel = ViewModelProviders.of(this).get(ViewModel.class);
         viewModel.loadAllLists().observe(this, new Observer<List<ListEntry>>() {

@@ -59,6 +59,9 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
         setContentView(R.layout.activity_products);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        if(getSupportActionBar()!=null) {
+            getSupportActionBar().setHomeActionContentDescription(R.string.up_button_description);
+        }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
