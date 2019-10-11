@@ -7,6 +7,8 @@
     <string name="menu_show_lists">Show lists</string>
     <string name="menu_send_to_email">Send to email</string>
 
+    <string name="email_subject">Shopping list</string>
+
     <!-- Main Activity -->
     <string name="toolbar_picture_description">Toolbar picture</string>
 

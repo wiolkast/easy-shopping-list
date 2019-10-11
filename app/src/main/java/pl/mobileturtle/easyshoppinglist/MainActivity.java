@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.toolbar_title) TextView toolbarTitle;
     private ShoppingListAdapter adapter;
+    private List<ShoppingListData> shoppinglist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
             @Override
             public void onChanged(@Nullable List<ShoppingListData> data) {
                 adapter.updateData(data);
+                shoppinglist = data;
                 Intent widgetUpdateIntent = new Intent(getApplicationContext(), WidgetService.class);
                 startService(widgetUpdateIntent);
             }
@@ -97,10 +99,34 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
                 startActivity(intent, bundle);
                 break;
             case R.id.action_send_email:
-                Toast.makeText(MainActivity.this, "Send to email clicked", Toast.LENGTH_SHORT).show();
+                composeEmail();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void composeEmail() {
+        String message = "";
+        for(ShoppingListData item: shoppinglist){
+            switch (item.getType()) {
+                case ShoppingListAdapter.VIEW_TYPE_NEED_LIST_LABEL:
+                    message = message.concat(getString(R.string.need_label) + "\n");
+                    break;
+                case ShoppingListAdapter.VIEW_TYPE_ALREADY_HAVE_LIST_LABEL:
+                    message = message.concat("\n\n" + getString(R.string.already_have_label) + "\n");
+                    break;
+                case ShoppingListAdapter.VIEW_TYPE_ITEMS:
+                    message = message.concat("\n" + item.getProductName());
+                    break;
+            }
+        }
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     @Override
