@@ -9,16 +9,16 @@
     <TextView
         android:id="@+id/tv_title"
         style="@style/AlertDialogTitleTextViewStyle"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/edit_text"/>
 
     <EditText
         android:id="@+id/edit_text"
         style="@style/AlertDialogEditTextStyle"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintBottom_toTopOf="@id/button_save"/>
 
@@ -26,8 +26,8 @@
         android:id="@+id/button_save"
         style="@style/AlertDialogButtonStyle"
         android:text="@string/button_save_title"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/button_cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_cancel"
         app:layout_constraintTop_toBottomOf="@id/edit_text"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -35,8 +35,8 @@
         android:id="@+id/button_cancel"
         style="@style/AlertDialogButtonStyle"
         android:text="@string/button_cancel_title"
-        app:layout_constraintLeft_toRightOf="@id/button_save"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_save"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_text"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

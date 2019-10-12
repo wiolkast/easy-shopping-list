@@ -9,8 +9,8 @@
     <TextView
         android:id="@+id/tv_delete_confirmation"
         style="@style/AlertDialogConfirmationTextViewStyle"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/button_delete"/>
 
@@ -18,8 +18,8 @@
         android:id="@+id/button_delete"
         style="@style/AlertDialogButtonStyle"
         android:text="@string/button_delete_title"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/button_cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_cancel"
         app:layout_constraintTop_toBottomOf="@id/tv_delete_confirmation"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -27,8 +27,8 @@
         android:id="@+id/button_cancel"
         style="@style/AlertDialogButtonStyle"
         android:text="@string/button_cancel_title"
-        app:layout_constraintLeft_toRightOf="@id/button_delete"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_delete"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/button_delete"
         app:layout_constraintBottom_toBottomOf="@id/button_delete"/>
 

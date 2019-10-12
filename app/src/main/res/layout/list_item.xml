@@ -11,16 +11,16 @@
         style="@style/ButtonCkeckedStyle"
         android:contentDescription="@string/button_checked_description"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/list_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/list_name"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/list_name"
         style="@style/TextViewListAndProductItemsNameStyle"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/button_checked"
-        app:layout_constraintRight_toLeftOf="@id/button_edit"
+        app:layout_constraintStart_toEndOf="@id/button_checked"
+        app:layout_constraintEnd_toStartOf="@id/button_edit"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -28,8 +28,8 @@
         style="@style/ButtonEditStyle"
         android:contentDescription="@string/button_edit_description"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/list_name"
-        app:layout_constraintRight_toLeftOf="@id/button_delete"
+        app:layout_constraintStart_toEndOf="@id/list_name"
+        app:layout_constraintEnd_toStartOf="@id/button_delete"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -37,8 +37,8 @@
         style="@style/ButtonDeleteStyle"
         android:contentDescription="@string/button_delete_description"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/button_edit"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_edit"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

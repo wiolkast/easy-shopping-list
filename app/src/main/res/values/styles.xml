@@ -52,7 +52,7 @@
     <style name="MainToolbarTitleStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">bottom</item>
+        <item name="android:layout_gravity">bottom|start</item>
         <item name="android:layout_margin">@dimen/main_layout_margin</item>
         <item name="android:textSize">@dimen/toolbar_title_size</item>
         <item name="android:textColor">@android:color/white</item>
@@ -63,9 +63,9 @@
     <style name="CardViewStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/card_view_margin</item>
+        <item name="android:layout_marginEnd">@dimen/card_view_margin</item>
         <item name="android:layout_marginBottom">@dimen/card_view_margin</item>
-        <item name="android:layout_marginLeft">@dimen/card_view_margin</item>
+        <item name="android:layout_marginStart">@dimen/card_view_margin</item>
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
         <item name="cardCornerRadius">5dp</item>
         <item name="cardElevation">4dp</item>
@@ -74,10 +74,11 @@
     <style name="TextViewItemNameStyle">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/main_layout_margin</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:layout_marginEnd">@dimen/main_layout_margin</item>
         <item name="android:layout_marginTop">@dimen/small_layout_margin</item>
         <item name="android:layout_marginBottom">@dimen/small_layout_margin</item>
-        <item name="android:layout_marginLeft">@dimen/small_layout_margin</item>
+        <item name="android:layout_marginStart">@dimen/main_layout_margin</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
     </style>
 
@@ -120,10 +121,11 @@
     <style name="TextViewListAndProductItemsNameStyle">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/main_layout_margin</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:layout_marginEnd">@dimen/main_layout_margin</item>
         <item name="android:layout_marginTop">@dimen/small_layout_margin</item>
         <item name="android:layout_marginBottom">@dimen/small_layout_margin</item>
-        <item name="android:layout_marginLeft">@dimen/small_layout_margin</item>
+        <item name="android:layout_marginStart">@dimen/main_layout_margin</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
     </style>
 
@@ -148,7 +150,7 @@
     <style name="ButtonListAndProductItemsStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/main_layout_margin</item>
+        <item name="android:layout_marginEnd">@dimen/main_layout_margin</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 
@@ -179,6 +181,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
         <item name="android:layout_marginBottom">@dimen/small_layout_margin</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="AlertDialogEditTextStyle">
@@ -186,13 +189,14 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:inputType">text</item>
         <item name="android:selectAllOnFocus">true</item>
+        <item name="android:textDirection">locale</item>
     </style>
 
     <style name="AlertDialogConfirmationTextViewStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
-        <item name="android:layout_marginLeft">@dimen/small_layout_margin</item>
+        <item name="android:layout_marginStart">@dimen/small_layout_margin</item>
         <item name="android:layout_marginTop">@dimen/small_layout_margin</item>
         <item name="android:layout_marginBottom">@dimen/main_layout_margin</item>
     </style>
@@ -223,8 +227,8 @@
     <style name="WidgetListItemTextViewStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">@dimen/widget_text_horizontal_margin</item>
-        <item name="android:layout_marginRight">@dimen/widget_text_horizontal_margin</item>
+        <item name="android:layout_marginStart">@dimen/widget_text_horizontal_margin</item>
+        <item name="android:layout_marginEnd">@dimen/widget_text_horizontal_margin</item>
         <item name="android:layout_marginTop">@dimen/widget_text_margin_top</item>
         <item name="android:layout_marginBottom">@dimen/widget_text_margin_bottom</item>
         <item name="android:textSize">@dimen/widget_text_size</item>
