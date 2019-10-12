@@ -36,4 +36,8 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    implementation 'com.google.firebase:firebase-core:17.2.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

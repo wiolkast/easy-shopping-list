@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "693905782870",
+    "firebase_url": "https://easy-shopping-list-dc611.firebaseio.com",
+    "project_id": "easy-shopping-list-dc611",
+    "storage_bucket": "easy-shopping-list-dc611.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693905782870:android:b65239de4e5037f3c0a3f7",
+        "android_client_info": {
+          "package_name": "pl.mobileturtle.easyshoppinglist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693905782870-nedfoki9l75them3qu0mq4njbk15evjv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiFznV2b0G8WRj44nfmKvYZlMaNSJ8sYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693905782870-nedfoki9l75them3qu0mq4njbk15evjv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

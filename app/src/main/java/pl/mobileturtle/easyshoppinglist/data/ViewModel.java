@@ -2,14 +2,18 @@ package pl.mobileturtle.easyshoppinglist.data;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.mobileturtle.easyshoppinglist.EasyShoppingList;
 import pl.mobileturtle.easyshoppinglist.R;
 import pl.mobileturtle.easyshoppinglist.ShoppingListAdapter;
 import pl.mobileturtle.easyshoppinglist.utilities.AppExecutors;
@@ -132,13 +136,22 @@ public class ViewModel extends AndroidViewModel {
                             }
                         });
                     } else {
+                        logNewProductToFirebase(product);
                         db.productDao().insertProduct(product);
                     }
                 } else {
+                    logNewProductToFirebase(product);
                     db.productDao().insertProduct(product);
                 }
             }
         });
+    }
+
+    private static void logNewProductToFirebase(ProductEntry product){
+        FirebaseAnalytics firebaseAnalytics = EasyShoppingList.getFirebaseAnalytics();
+        Bundle newProductBundle = new Bundle();
+        newProductBundle.putString("new_product", product.getProductName());
+        firebaseAnalytics.logEvent("added_new_product", newProductBundle);
     }
 
     public interface ViewModelInsertProductCallback{
