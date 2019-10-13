@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('keystore.jks')
+            storePassword 'uG_34pdf'
+            keyAlias = 'upload'
+            keyPassword 'Tufg,5n'
+        }
+    }
     compileSdkVersion 28
     buildToolsVersion "29.0.0"
     defaultConfig {
@@ -14,6 +22,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
