@@ -57,7 +57,28 @@
         <item name="android:layout_margin">@dimen/main_layout_margin</item>
         <item name="android:textSize">@dimen/toolbar_title_size</item>
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="theme">@style/ToolbarTheme</item>
+    </style>
+
+    <style name="ToolbarImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/toolbar_image_height</item>
+        <item name="android:src">@drawable/shopping</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_gravity">bottom|start</item>
+    </style>
+
+    <style name="ToolbarImageContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/toolbar_image_height</item>
+        <item name="layout_collapseMode">parallax</item>
+    </style>
+
+    <style name="ToolbarImageScrimGradient">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/scrim_gradient</item>
     </style>
 
     <!-- Shopping List -->

@@ -28,5 +28,6 @@
     <!-- Toolbar -->
     <dimen name="toolbar_elevation">4dp</dimen>
     <dimen name="toolbar_title_size">20sp</dimen>
+    <dimen name="toolbar_image_height">150dp</dimen>
 
 </resources>

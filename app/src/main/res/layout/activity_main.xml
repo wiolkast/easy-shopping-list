@@ -8,19 +8,26 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="112dp"
+        android:layout_height="@dimen/toolbar_image_height"
         app:elevation="@dimen/toolbar_elevation">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar_layout"
             style="@style/CollapsingToolbarLayoutStyle">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/placeholder"
-                android:layout_gravity="bottom|start"
-                android:contentDescription="@string/toolbar_picture_description"/>
+            <FrameLayout
+                android:id="@+id/photo_container"
+                style="@style/ToolbarImageContainer">
+
+                <ImageView
+                    style="@style/ToolbarImage"
+                    android:contentDescription="@string/toolbar_picture_description"/>
+
+                <View
+                    android:id="@+id/scrim_gradient"
+                    style="@style/ToolbarImageScrimGradient"/>
+
+            </FrameLayout>
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"

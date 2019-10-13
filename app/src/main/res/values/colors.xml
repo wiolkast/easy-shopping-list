@@ -13,4 +13,9 @@
     <color name="widget_text_color">#000000</color>
     <color name="widget_logo_color">#FDFCF3</color>
     <color name="widget_logo_background_color">#353957</color>
+
+    <!-- Main Activity toolbar image scrim gradient -->
+    <color name="colorScrimGradientStart">#00000000</color>
+    <color name="colorScrimGradientCenter">#23000000</color>
+    <color name="colorScrimGradientEnd">#86000000</color>
 </resources>
