@@ -33,6 +33,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:clipToPadding">false</item>
+        <item name="android:fillViewport">true</item>
         <item name="layout_behavior">@string/appbar_scrolling_view_behavior</item>
     </style>
 
