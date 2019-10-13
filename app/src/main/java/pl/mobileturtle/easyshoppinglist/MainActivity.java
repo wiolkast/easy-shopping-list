@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
         getMenuInflater().inflate(R.menu.main, menu);
         if(menu instanceof MenuBuilder){
             MenuBuilder m = (MenuBuilder) menu;
-            m.setOptionalIconsVisible(true);
         }
         return true;
     }
