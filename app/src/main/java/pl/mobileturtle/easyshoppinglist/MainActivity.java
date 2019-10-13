@@ -2,7 +2,6 @@ package pl.mobileturtle.easyshoppinglist;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
 
         // Populate sample database on the first run
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        Boolean isFirstRun = sharedPreferences.getBoolean("is_first_run", true);
+        boolean isFirstRun = sharedPreferences.getBoolean("is_first_run", true);
         if (isFirstRun) {
             ViewModel.populateSampleDatabase(this);
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -92,9 +91,6 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        if(menu instanceof MenuBuilder){
-            MenuBuilder m = (MenuBuilder) menu;
-        }
         return true;
     }
 

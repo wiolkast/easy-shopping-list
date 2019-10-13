@@ -73,19 +73,23 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
             }
         });
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
-        adapter = new ListsAdapter(this);
-        recyclerView.setAdapter(adapter);
-        DividerItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), VERTICAL);
-        recyclerView.addItemDecoration(decoration);
+        if(recyclerView != null) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setHasFixedSize(true);
+            adapter = new ListsAdapter(this);
+            recyclerView.setAdapter(adapter);
+            DividerItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), VERTICAL);
+            recyclerView.addItemDecoration(decoration);
+        }
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openListDialog(newListTitle, null, true);
-            }
-        });
+        if(fab != null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openListDialog(newListTitle, null, true);
+                }
+            });
+        }
     }
 
     @Override
@@ -113,10 +117,12 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_edit_list_or_product, null);
         ButterKnife.bind(this, dialogView);
-        tvTitle.setText(title);
-        editText.setHint(editListHint);
-        if (list != null) {
-            editText.setText(list.getListName());
+        if(tvTitle != null){tvTitle.setText(title);}
+        if(editText != null) {
+            editText.setHint(editListHint);
+            if (list != null) {
+                editText.setText(list.getListName());
+            }
         }
         builder.setView(dialogView);
         AlertDialog alertDialog = builder.create();
@@ -144,31 +150,35 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
             }
         });
 
-        buttonSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = editText.getText().toString();
-                if (name.isEmpty()) {
-                    Toast toast = Toast.makeText(getApplicationContext(), emptyListNameError, Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
-                } else if (isNewList) {
-                    ListEntry list = new ListEntry(name, true);
-                    ViewModel.insertList(list);
-                    alertDialog.dismiss();
-                } else {
-                    list.setListName(name);
-                    ViewModel.updateList(list);
+        if(buttonSave != null) {
+            buttonSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String name = editText.getText().toString();
+                    if (name.isEmpty()) {
+                        Toast toast = Toast.makeText(getApplicationContext(), emptyListNameError, Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    } else if (isNewList) {
+                        ListEntry list = new ListEntry(name, true);
+                        ViewModel.insertList(list);
+                        alertDialog.dismiss();
+                    } else {
+                        if(list != null){list.setListName(name);}
+                        ViewModel.updateList(list);
+                        alertDialog.dismiss();
+                    }
+                }
+            });
+        }
+        if(buttonCancel != null) {
+            buttonCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     alertDialog.dismiss();
                 }
-            }
-        });
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
+            });
+        }
         alertDialog.show();
     }
 
@@ -176,22 +186,27 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_delete_confirmation, null);
         ButterKnife.bind(this, dialogView);
-        tvDeleteConfirmation.setText(deleteListConfirmation);
+        if(tvDeleteConfirmation != null) {tvDeleteConfirmation.setText(deleteListConfirmation);}
         builder.setView(dialogView);
         AlertDialog alertDialog = builder.create();
-        buttonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ViewModel.deleteList(list);
-                alertDialog.dismiss();
-            }
-        });
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
-        alertDialog.show();
+
+        if(buttonDelete != null) {
+            buttonDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ViewModel.deleteList(list);
+                    alertDialog.dismiss();
+                }
+            });
+        }
+        if(buttonCancel != null) {
+            buttonCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.show();
+        }
     }
 }

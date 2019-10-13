@@ -12,7 +12,7 @@ import pl.mobileturtle.easyshoppinglist.R;
 
 public class WidgetProvider extends AppWidgetProvider {
 
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+    private static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_list_view);

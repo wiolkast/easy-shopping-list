@@ -18,7 +18,7 @@ import pl.mobileturtle.easyshoppinglist.data.ProductEntry;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder> {
     private List<ProductEntry> productEntries;
-    private ClickListener clickListener;
+    private final ClickListener clickListener;
     public static final int ACTION_ADD_TO_LIST = 1;
     public static final int ACTION_EDIT = 2;
     public static final int ACTION_DELETE = 3;
@@ -54,7 +54,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         @BindView(R.id.button_edit) ImageButton buttonEdit;
         @BindView(R.id.button_delete) ImageButton buttonDelete;
 
-        public ProductsViewHolder(@NonNull View itemView) {
+        private ProductsViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }

@@ -66,13 +66,14 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
             getSupportActionBar().setHomeActionContentDescription(R.string.up_button_description);
         }
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
-        adapter = new ProductsAdapter(this);
-        recyclerView.setAdapter(adapter);
-
-        DividerItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), VERTICAL);
-        recyclerView.addItemDecoration(decoration);
+        if(recyclerView != null) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setHasFixedSize(true);
+            adapter = new ProductsAdapter(this);
+            recyclerView.setAdapter(adapter);
+            DividerItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), VERTICAL);
+            recyclerView.addItemDecoration(decoration);
+        }
 
         ViewModel viewModel = ViewModelProviders.of(this).get(ViewModel.class);
         viewModel.loadAllProducts().observe(this, new Observer<List<ProductEntry>>() {
@@ -84,12 +85,14 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
             }
         });
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openProductDialog(newProductTitle, null, true);
-            }
-        });
+        if(fab != null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openProductDialog(newProductTitle, null, true);
+                }
+            });
+        }
     }
 
     @Override
@@ -114,10 +117,12 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_edit_list_or_product, null);
         ButterKnife.bind(this, dialogView);
-        tvTitle.setText(title);
-        editText.setHint(editProductHint);
-        if (product != null) {
-            editText.setText(product.getProductName());
+        if(tvTitle != null) {tvTitle.setText(title);}
+        if(editText != null) {
+            editText.setHint(editProductHint);
+            if (product != null) {
+                editText.setText(product.getProductName());
+            }
         }
         builder.setView(dialogView);
         AlertDialog alertDialog = builder.create();
@@ -145,32 +150,37 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
             }
         });
 
-        buttonSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = editText.getText().toString();
-                if (name.isEmpty()) {
-                    Toast toast = Toast.makeText(getApplicationContext(), emptyProductNameError, Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
-                } else if (isNewProduct) {
-                    ProductEntry product = new ProductEntry(name);
-                    ViewModel.insertProduct(product, ProductsActivity.this);
-                    alertDialog.dismiss();
-                } else {
-                    product.setProductName(name);
-                    ViewModel.updateProduct(product);
+        if(buttonSave != null) {
+            buttonSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String name = editText.getText().toString();
+                    if (name.isEmpty()) {
+                        Toast toast = Toast.makeText(getApplicationContext(), emptyProductNameError, Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    } else if (isNewProduct) {
+                        ProductEntry product = new ProductEntry(name);
+                        ViewModel.insertProduct(product, ProductsActivity.this);
+                        alertDialog.dismiss();
+                    } else {
+                        if(product != null){product.setProductName(name);}
+                        ViewModel.updateProduct(product);
+                        alertDialog.dismiss();
+                    }
+                }
+            });
+        }
+        if(buttonCancel != null) {
+            buttonCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     alertDialog.dismiss();
                 }
-            }
-        });
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
+            });
+        }
         alertDialog.show();
+
     }
 
     @Override
@@ -188,22 +198,26 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_add_similar_confirmation, null);
         ButterKnife.bind(this, dialogView);
-        tvAddConfirmation.setText(addSimilarProductConfirmation.concat(similarProducts));
+        if(tvAddConfirmation != null){tvAddConfirmation.setText(addSimilarProductConfirmation.concat(similarProducts));}
         builder.setView(dialogView);
         AlertDialog alertDialog = builder.create();
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ViewModel.insertProduct(product, null);
-                alertDialog.dismiss();
-            }
-        });
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
+        if(buttonAdd != null) {
+            buttonAdd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ViewModel.insertProduct(product, null);
+                    alertDialog.dismiss();
+                }
+            });
+        }
+        if(buttonCancel != null) {
+            buttonCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
+        }
         alertDialog.show();
     }
 
@@ -211,22 +225,26 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_delete_confirmation, null);
         ButterKnife.bind(this, dialogView);
-        tvDeleteConfirmation.setText(deleteProductConfirmation);
+        if(tvDeleteConfirmation != null){tvDeleteConfirmation.setText(deleteProductConfirmation);}
         builder.setView(dialogView);
         AlertDialog alertDialog = builder.create();
-        buttonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ViewModel.deleteProduct(product);
-                alertDialog.dismiss();
-            }
-        });
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
+        if(buttonDelete != null) {
+            buttonDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ViewModel.deleteProduct(product);
+                    alertDialog.dismiss();
+                }
+            });
+        }
+        if(buttonCancel != null) {
+            buttonCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
+        }
         alertDialog.show();
     }
 }

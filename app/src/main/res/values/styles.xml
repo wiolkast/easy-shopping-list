@@ -155,7 +155,7 @@
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 
-    <style name="ButtonCkeckedStyle" parent="ButtonListAndProductItemsStyle">
+    <style name="ButtonCheckedStyle" parent="ButtonListAndProductItemsStyle">
         <item name="android:src">@drawable/ic_checked</item>
     </style>
 

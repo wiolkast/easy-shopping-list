@@ -19,7 +19,7 @@ public class WidgetListService extends RemoteViewsService {
     }
 
     private class WidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory{
-        private Context context;
+        private final Context context;
         private List<ShoppingListData> data;
 
         private WidgetRemoteViewsFactory(Context applicationContext){

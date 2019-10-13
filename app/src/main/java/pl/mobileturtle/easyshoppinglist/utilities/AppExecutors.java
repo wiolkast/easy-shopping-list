@@ -13,7 +13,7 @@ public class AppExecutors {
     private final Executor diskIO;
     private final Executor mainThread;
 
-    public AppExecutors(Executor diskIO, Executor mainThread) {
+    private AppExecutors(Executor diskIO, Executor mainThread) {
         this.diskIO = diskIO;
         this.mainThread = mainThread;
     }
@@ -35,8 +35,8 @@ public class AppExecutors {
         return mainThread;
     }
 
-    private static class MainThreadExecutor implements Executor {
-        private Handler mainThreadHandler = new Handler(Looper.getMainLooper());
+    private static final class MainThreadExecutor implements Executor {
+        private final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
         @Override
         public void execute(@NonNull Runnable command) {
             mainThreadHandler.post(command);

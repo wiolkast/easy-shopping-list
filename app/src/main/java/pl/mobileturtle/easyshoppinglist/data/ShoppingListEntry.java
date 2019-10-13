@@ -9,12 +9,12 @@ import androidx.room.PrimaryKey;
 public class ShoppingListEntry {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private int listId;
+    private final int listId;
     @ForeignKey(entity = ListEntry.class, parentColumns = "listId", childColumns = "listId")
-    private int productId;
+    private final int productId;
     @ForeignKey(entity = ProductEntry.class, parentColumns = "productId", childColumns = "productId")
     private int position;
-    private int type;
+    private final int type;
 
     @Ignore
     public ShoppingListEntry(int listId, int productId, int position, int type){

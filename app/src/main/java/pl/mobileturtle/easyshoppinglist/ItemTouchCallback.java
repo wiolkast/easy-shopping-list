@@ -5,10 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ItemTouchCallback extends ItemTouchHelper.Callback {
-    private ShoppingListAdapter adapter;
+class ItemTouchCallback extends ItemTouchHelper.Callback {
+    private final ShoppingListAdapter adapter;
     private int starterPosition;
-    private int targetPosition;
 
     public ItemTouchCallback(ShoppingListAdapter adapter) {
         this.adapter = adapter;
@@ -46,7 +45,7 @@ public class ItemTouchCallback extends ItemTouchHelper.Callback {
 
     @Override
     public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
-        if(actionState != ItemTouchHelper.ACTION_STATE_IDLE){
+        if(actionState != ItemTouchHelper.ACTION_STATE_IDLE && viewHolder != null){
             starterPosition = viewHolder.getAdapterPosition();
             viewHolder.itemView.setTranslationZ(8);
         }
@@ -55,7 +54,7 @@ public class ItemTouchCallback extends ItemTouchHelper.Callback {
 
     @Override
     public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-        targetPosition = viewHolder.getAdapterPosition();
+        int targetPosition = viewHolder.getAdapterPosition();
         viewHolder.itemView.setTranslationZ(0);
         if(targetPosition!=-1){
             adapter.onItemStopMoving(starterPosition, targetPosition);

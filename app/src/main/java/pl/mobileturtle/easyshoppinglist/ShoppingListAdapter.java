@@ -25,7 +25,7 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public static final int ACTION_OPEN_PRODUCT_ACTIVITY = 1;
     public static final int ACTION_DELETE_ITEM = 2;
     private List<ShoppingListData> data;
-    private ClickListener clickListener;
+    private final ClickListener clickListener;
 
     public ShoppingListAdapter(ClickListener clickListener) {
         this.clickListener = clickListener;
@@ -90,11 +90,11 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
-    public class ItemsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class ItemsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.item_name) TextView itemName;
         @BindView(R.id.button_delete) ImageButton buttonDelete;
 
-        public ItemsViewHolder(@NonNull View itemView) {
+        private ItemsViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
@@ -111,10 +111,9 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
-    public boolean onItemMove(int fromPosition, int toPosition) {
+    public void onItemMove(int fromPosition, int toPosition) {
         Collections.swap(data, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
-        return true;
     }
 
     public void onItemStopMoving(int starterPosition, int targetPosition) {
