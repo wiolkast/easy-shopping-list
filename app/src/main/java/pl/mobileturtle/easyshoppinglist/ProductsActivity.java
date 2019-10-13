@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +53,7 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
     @BindString(R.string.add_similar_product_confirmation) String addSimilarProductConfirmation;
     @BindString(R.string.empty_product_name_error) String emptyProductNameError;
     @BindString(R.string.product_added_info) String productAddedInfo;
+    @BindString(R.string.non_alphanumeric_character_info) String nonAlphanumericCharacterInfo;
     private ProductsAdapter adapter;
 
     @Override
@@ -118,6 +121,30 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
         }
         builder.setView(dialogView);
         AlertDialog alertDialog = builder.create();
+
+        // Listener controls user input and removes non alphanumeric characters
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(s.length() > 0 && Character.toString(s.toString().charAt(s.length()-1)).matches("[^\\p{L}\\p{N} _-]")){
+                    Toast toast = Toast.makeText(getApplicationContext(), nonAlphanumericCharacterInfo, Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                    final String newText = s.toString().substring(0, s.length()-1);
+                    editText.setText(newText);
+                    editText.setSelection(newText.length());
+                }
+            }
+        });
+
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

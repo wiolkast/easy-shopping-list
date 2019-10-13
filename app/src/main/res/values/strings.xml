@@ -45,6 +45,7 @@
     <string name="delete_list_confirmation">Deleting list. Are you sure?</string>
     <string name="delete_product_confirmation">Deleting product. Are you sure?</string>
     <string name="add_similar_product_confirmation">Are you sure? You already have in the list: </string>
+    <string name="non_alphanumeric_character_info">Only letters or numbers allowed</string>
 
     <!-- Widget -->
     <string name="widget_logo_title">Shopping list</string>

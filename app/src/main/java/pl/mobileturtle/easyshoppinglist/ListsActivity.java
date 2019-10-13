@@ -2,6 +2,8 @@ package pl.mobileturtle.easyshoppinglist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +50,7 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
     @BindString(R.string.delete_list_confirmation) String deleteListConfirmation;
     @BindString(R.string.delete_active_list_error) String deleteActiveListError;
     @BindString(R.string.empty_list_name_error) String emptyListNameError;
+    @BindString(R.string.non_alphanumeric_character_info) String nonAlphanumericCharacterInfo;
     private ListsAdapter adapter;
 
     @Override
@@ -117,6 +120,30 @@ public class ListsActivity extends AppCompatActivity implements ListsAdapter.Cli
         }
         builder.setView(dialogView);
         AlertDialog alertDialog = builder.create();
+
+        // Listener controls user input and removes invalidate characters
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(s.length() > 0 && Character.toString(s.toString().charAt(s.length()-1)).matches("[^\\p{L}\\p{N} ]")){
+                    Toast toast = Toast.makeText(getApplicationContext(), nonAlphanumericCharacterInfo, Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                    final String newText = s.toString().substring(0, s.length()-1);
+                    editText.setText(newText);
+                    editText.setSelection(newText.length());
+                }
+            }
+        });
+
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
