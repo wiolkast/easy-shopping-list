@@ -5,6 +5,7 @@
     <dimen name="card_view_margin">12dp</dimen>
 
     <dimen name="recycler_view_label_text_size">20sp</dimen>
+    <dimen name="recycler_view_bottom_padding">100dp</dimen>
 
     <!-- Widget -->
     <dimen name="widget_margin">0dp</dimen>

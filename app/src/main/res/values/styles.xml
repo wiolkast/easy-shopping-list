@@ -104,7 +104,14 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
     </style>
 
-    <!-- RecyclerView labels -->
+    <!-- RecyclerView -->
+    <style name="RecyclerViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:paddingBottom">@dimen/recycler_view_bottom_padding</item>
+    </style>
+
     <style name="RecycleViewLabelsStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -149,6 +156,11 @@
         <item name="android:layout_marginBottom">@dimen/small_layout_margin</item>
         <item name="android:layout_marginStart">@dimen/main_layout_margin</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
+    <!-- RecyclerView -->
+    <style name="RecyclerViewListsAndProductsStyle" parent="RecyclerViewStyle">
+        <item name="android:layout_margin">@dimen/small_layout_margin</item>
     </style>
 
     <!-- Floating action button -->
