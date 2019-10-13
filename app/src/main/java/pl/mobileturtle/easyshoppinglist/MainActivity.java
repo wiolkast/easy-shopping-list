@@ -20,6 +20,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
     @BindView(R.id.rv_shopping_list) RecyclerView recyclerView;
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.toolbar_title) TextView toolbarTitle;
+    @BindView(R.id.adView) AdView adView;
     private ShoppingListAdapter adapter;
     private List<ShoppingListData> shoppinglist;
 
@@ -44,6 +48,11 @@ public class MainActivity extends AppCompatActivity implements ShoppingListAdapt
         if(getSupportActionBar()!=null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        adView.loadAd(adRequest);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         adapter = new ShoppingListAdapter(this);

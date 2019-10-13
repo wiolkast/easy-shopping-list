@@ -52,6 +52,13 @@
             android:permission="android.permission.BIND_REMOTEVIEWS"/>
         <service
             android:name=".widget.WidgetService" />
-    </application>
 
+        <meta-data
+            android:name="com.google.android.gms.APPLICATION_ID"
+            android:value="ca-app-pub-9127542910033845~2341814467"/>
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true"/>
+
+    </application>
 </manifest>
