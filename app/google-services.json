@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "693905782870-9ocrrul6grv30d0t649qrlqa9u60tv16.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.mobileturtle.easyshoppinglist",
+            "certificate_hash": "5e164b4640728a74e74d6e44d37703d5ddeea26b"
+          }
+        },
+        {
           "client_id": "693905782870-nedfoki9l75them3qu0mq4njbk15evjv.apps.googleusercontent.com",
           "client_type": 3
         }
